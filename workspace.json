@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "angular": "packages/angular",
+    "elements": "packages/elements",
+    "react": "packages/react"
+  }
+}

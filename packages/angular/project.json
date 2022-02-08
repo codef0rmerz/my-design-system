@@ -1,0 +1,80 @@
+{
+  "projectType": "application",
+  "root": "packages/angular",
+  "sourceRoot": "packages/angular/src",
+  "prefix": "my-design-system",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/angular",
+        "index": "packages/angular/src/index.html",
+        "main": "packages/angular/src/main.ts",
+        "polyfills": "packages/angular/src/polyfills.ts",
+        "tsConfig": "packages/angular/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["packages/angular/src/favicon.ico", "packages/angular/src/assets"],
+        "styles": ["packages/angular/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "packages/angular/src/environments/environment.ts",
+              "with": "packages/angular/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular:build:production"
+        },
+        "development": {
+          "browserTarget": "angular:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/angular/src/**/*.ts", "packages/angular/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
