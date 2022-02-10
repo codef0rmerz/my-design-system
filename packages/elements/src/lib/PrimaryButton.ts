@@ -4,15 +4,25 @@ import {
   buttonTemplate,
   ElementDefinitionContext,
   ButtonOptions,
+  forcedColorsStylesheetBehavior,
 } from '@microsoft/fast-foundation';
 
-const myPrimaryButtonStyles = (context: ElementDefinitionContext, definition: ButtonOptions) => css`
-  ${buttonStyles(context, definition)}
+const myPrimaryButtonStyles = (context: ElementDefinitionContext, definition: ButtonOptions) =>
+  css`
+    ${buttonStyles(context, definition)}
 
-  :host {
-    height: 50px;
-  }
-`;
+    :host {
+      --accent-fill-rest: green;
+    }
+  `.withBehaviors(
+    forcedColorsStylesheetBehavior(
+      css`
+        :host {
+          --accent-fill-rest: red;
+        }
+      `
+    )
+  );
 
 export const myPrimaryButton = Button.compose({
   baseName: 'primary-button',
