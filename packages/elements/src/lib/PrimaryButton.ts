@@ -10,19 +10,7 @@ import {
 const myPrimaryButtonStyles = (context: ElementDefinitionContext, definition: ButtonOptions) =>
   css`
     ${buttonStyles(context, definition)}
-
-    :host {
-      --accent-fill-rest: green;
-    }
-  `.withBehaviors(
-    forcedColorsStylesheetBehavior(
-      css`
-        :host {
-          --accent-fill-rest: red;
-        }
-      `
-    )
-  );
+  `.withBehaviors(forcedColorsStylesheetBehavior(css``));
 
 export const myPrimaryButton = Button.compose({
   baseName: 'primary-button',

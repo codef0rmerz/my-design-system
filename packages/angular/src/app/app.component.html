@@ -1,2 +1,8 @@
-<my-primary-button appearance="accent">Primary</my-primary-button>
-<my-secondary-button appearance="outline">Secondary</my-secondary-button>
+<my-card style="display: flex; padding: 2rem; gap: 2rem">
+  <my-primary-button (click)="activateLightMode()" appearance="accent"
+    >Click me for Light Mode</my-primary-button
+  >
+  <my-secondary-button (click)="activateDarkMode()" appearance="outline"
+    >Click me for Dark Mode</my-secondary-button
+  >
+</my-card>

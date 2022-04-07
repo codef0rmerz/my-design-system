@@ -6,6 +6,8 @@ import {
   mySecondaryButton,
 } from '@my-design-system/elements';
 
+import { fastCard } from '@microsoft/fast-components';
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
@@ -13,7 +15,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-provideMyDesignSystem().register(myPrimaryButton(), mySecondaryButton());
+provideMyDesignSystem(document.body).register(myPrimaryButton(), mySecondaryButton(), fastCard());
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

@@ -8,7 +8,7 @@ import {
 
 import App from './app/app';
 
-provideMyDesignSystem().register(myPrimaryButton(), mySecondaryButton());
+provideMyDesignSystem(document.body).register(myPrimaryButton(), mySecondaryButton());
 
 ReactDOM.render(
   <StrictMode>

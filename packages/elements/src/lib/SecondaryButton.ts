@@ -11,10 +11,6 @@ const mySecondaryButtonStyles = (
   definition: ButtonOptions
 ) => css`
   ${buttonStyles(context, definition)}
-
-  :host {
-    height: 100px;
-  }
 `;
 
 export const mySecondaryButton = Button.compose({
